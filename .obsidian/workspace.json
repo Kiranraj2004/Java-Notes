@@ -41,7 +41,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "core java/L4-Naming Variables in Java.md",
+                "file": "core java/Basic/L4-Naming Variables in Java.md",
                 "mode": "source",
                 "source": false
               },
@@ -55,12 +55,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "core java/L8-String Methods in Java.md",
+                "file": "core java/Basic/L11-Arrays in Java.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "L8-String Methods in Java"
+              "title": "L11-Arrays in Java"
             }
           }
         ],
@@ -211,15 +211,19 @@
   },
   "active": "3aea33112cf799d5",
   "lastOpenFiles": [
-    "core java/L7-String Data Type in Java.md",
-    "core java/L8-String Methods in Java.md",
-    "core java/L6-Bitwise Operators in Java.md",
+    "core java/Basic/L10-Loops in Java.md",
+    "core java/Basic/L11-Arrays in Java.md",
+    "core java/Basic/L9-Conditional Statements in Java.md",
+    "core java/Basic/L8-String Methods in Java.md",
+    "core java/Basic",
+    "core java/Basic/L7-String Data Type in Java.md",
+    "core java/Basic/L6-Bitwise Operators in Java.md",
     "core java/multithreading/L7-String Data Type in Java.md",
-    "core java/L5-Arithmetic Operations in Java.md",
-    "core java/L4-Naming Variables in Java.md",
-    "core java/L3- Variables and Data Types in Java.md",
-    "core java/L2-Understanding Java Program Structure.md",
-    "core java/L1-Java Development Environment Overview.md",
+    "core java/Basic/L5-Arithmetic Operations in Java.md",
+    "core java/Basic/L4-Naming Variables in Java.md",
+    "core java/Basic/L3- Variables and Data Types in Java.md",
+    "core java/Basic/L2-Understanding Java Program Structure.md",
+    "core java/Basic/L1-Java Development Environment Overview.md",
     "core java/multithreading/L8-Synchronization and Locks in Java.md",
     "core java/multithreading/L7-Synchronization in Java.md",
     "core java/multithreading/L1 - Multithreading Basics.md",
