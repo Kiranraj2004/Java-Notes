@@ -192,5 +192,3 @@ class ReentrantExample {
    - `lockInterruptibly()`: Acquires the lock unless the thread is interrupted.
 
 ---
-
-This should cover the key points and examples for synchronization, locks, and reentrant locks in Java. If you have any specific questions or need further clarification, feel free to ask! 😊
