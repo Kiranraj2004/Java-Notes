@@ -1,8 +1,4 @@
 
-## 🧵 Thread Safety in Java – Notes
-
----
-
 ### ❓ What is Thread Safety?
 
 **Thread safety** means:
