@@ -41,12 +41,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "core java/Basic/L7-String Data Type in Java.md",
+                "file": "core java/multithreading/L15- Thread Pools.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "L7-String Data Type in Java"
+              "title": "L15- Thread Pools"
             }
           }
         ],
@@ -197,8 +197,9 @@
   },
   "active": "f739770a222e32bf",
   "lastOpenFiles": [
-    "core java/Basic/L7-String Data Type in Java 1.md",
     "core java/Basic/L7-String Data Type in Java.md",
+    "core java/multithreading/L15- Thread Pools.md",
+    "core java/Basic/L7-String Data Type in Java 1.md",
     "core java/Oops/L15- String vs String Buffer and Builder.md",
     "core java/Oops/L10- Static Keyword.md",
     "core java/Basic/L8-String Methods in Java.md",
@@ -222,7 +223,6 @@
     "core java/Oops/L14-volatile.md",
     "core java/Oops/L13-Wapper Class.md",
     "core java/Oops/L12-Inner Classes in Java.md",
-    "core java/Oops/L11-Interfaces in Java.md",
     "core java/Oops",
     "core java/Basic",
     "Untitled.canvas",
