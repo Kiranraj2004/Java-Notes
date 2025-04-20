@@ -41,12 +41,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "core java/multithreading/L15- Thread Pools.md",
+                "file": "core java/multithreading/Executor/Part 5.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "L15- Thread Pools"
+              "title": "Part 5"
             }
           }
         ],
@@ -197,8 +197,14 @@
   },
   "active": "f739770a222e32bf",
   "lastOpenFiles": [
-    "core java/Basic/L7-String Data Type in Java.md",
+    "core java/multithreading/Executor/Part 4.md",
+    "core java/multithreading/Executor/Part 5.md",
+    "core java/multithreading/Executor/Part 2.md",
+    "core java/multithreading/Executor/Part 3.md",
+    "core java/multithreading/Executor/Part 1.md",
     "core java/multithreading/L15- Thread Pools.md",
+    "core java/multithreading/Executor",
+    "core java/Basic/L7-String Data Type in Java.md",
     "core java/Basic/L7-String Data Type in Java 1.md",
     "core java/Oops/L15- String vs String Buffer and Builder.md",
     "core java/Oops/L10- Static Keyword.md",
@@ -218,11 +224,6 @@
     "core java/multithreading/L2-How JVM handles multithreading.md",
     "core java/multithreading/L1 - Multithreading Basics.md",
     "core java/Oops/L7-Polymorphism in Java.md",
-    "core java/Oops/L6-Inheritance in Java.md",
-    "core java/Oops/Super keyword.md",
-    "core java/Oops/L14-volatile.md",
-    "core java/Oops/L13-Wapper Class.md",
-    "core java/Oops/L12-Inner Classes in Java.md",
     "core java/Oops",
     "core java/Basic",
     "Untitled.canvas",
