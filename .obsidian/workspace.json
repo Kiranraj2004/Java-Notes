@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "core java/Collection frame work/L3-Comparator in Java.md",
+                "file": "core java/java 8+ features/L1-Lambda Expressions.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "L3-Comparator in Java"
+              "title": "L1-Lambda Expressions"
             }
           }
         ]
@@ -168,8 +168,12 @@
   },
   "active": "3baa5d93d7c88447",
   "lastOpenFiles": [
-    "core java/Collection frame work/L2-List Interface, and ArrayList.md",
+    "core java/Collection frame work/L6-Stack in Java.md",
+    "core java/java 8+ features",
+    "core java/Collection frame work/L5- Vector in Java.md",
+    "core java/Collection frame work/L4- LinkedList Explanation.md",
     "core java/Collection frame work/L3-Comparator in Java.md",
+    "core java/Collection frame work/L2-List Interface, and ArrayList.md",
     "core java/Collection frame work/L1-Java Collection Framework Introduction.md",
     "collection framework hierarchy.png",
     "core java/Collection frame work",
@@ -193,10 +197,6 @@
     "core java/Basic/L7-String Data Type in Java.md",
     "core java/Basic/L7-String Data Type in Java 1.md",
     "core java/Oops/L15- String vs String Buffer and Builder.md",
-    "core java/Oops/L10- Static Keyword.md",
-    "core java/Basic/L8-String Methods in Java.md",
-    "core java/multithreading/L14-Lambda Expressions.md",
-    "core java/multithreading/L6-Java Thread Methods.md",
     "core java/Oops",
     "core java/Basic",
     "Untitled.canvas",
