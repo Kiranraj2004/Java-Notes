@@ -67,3 +67,6 @@
     
 - Helps in **controlling system resources**, improving performance, and ensuring **predictable task handling**.
     
+
+
+after this executor are the next lecture
