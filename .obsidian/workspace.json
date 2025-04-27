@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "core java/Collection frame work/L12-SET in Java.md",
+                "file": "core java/java 8+ features/Optional Class.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "L12-SET in Java"
+              "title": "Optional Class"
             }
           }
         ]
@@ -168,8 +168,10 @@
   },
   "active": "3baa5d93d7c88447",
   "lastOpenFiles": [
-    "core java/Collection frame work/L11-Iterable,Iterable.md",
+    "core java/java 8+ features/Streams.md",
+    "core java/java 8+ features/Optional Class.md",
     "core java/Collection frame work/L12-SET in Java.md",
+    "core java/Collection frame work/L11-Iterable,Iterable.md",
     "core java/Collection frame work/L10-WeakHashMap.md",
     "core java/Collection frame work/L9-LinkedHashMap.md",
     "core java/Collection frame work/L8-Map and HashMap Part 2.md",
@@ -196,8 +198,6 @@
     "core java/multithreading/L11-Deadlock in Java.md",
     "core java/multithreading/Executor/Part 7 CyclicBarrier.md",
     "core java/Basic/L12-Methods.md",
-    "core java/multithreading/Executor/Part 6-CountDownLatch.md",
-    "core java/multithreading/Executor/Part 5.md",
     "core java/multithreading/Executor",
     "core java/Oops",
     "core java/Basic",
