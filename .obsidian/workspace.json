@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "core java/java 8+ features/Method Reference and Constructor Reference.md",
+                "file": "core java/Collection frame work/L8-Map and HashMap Part 1.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Method Reference and Constructor Reference"
+              "title": "L8-Map and HashMap Part 1"
             }
           }
         ]
@@ -168,8 +168,8 @@
   },
   "active": "3baa5d93d7c88447",
   "lastOpenFiles": [
-    "core java/java 8+ features/Optional Class.md",
     "core java/java 8+ features/Method Reference and Constructor Reference.md",
+    "core java/java 8+ features/Optional Class.md",
     "core java/java 8+ features/Streams.md",
     "core java/Collection frame work/L12-SET in Java.md",
     "core java/Collection frame work/L11-Iterable,Iterable.md",
