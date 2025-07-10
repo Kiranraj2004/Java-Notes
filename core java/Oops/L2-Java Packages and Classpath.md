@@ -76,6 +76,9 @@
     ```
     
 - This tells the JVM where to search for the `TestClass`.
+
+lets say you have created the test package in the src folder inside test package you have  demo class which print hello world in that program first line will be package test;
+this tells the class demo is inside the test package  . now you opened the cmd with directory src/test .now compile the demo class using javac demo.java . now if you run the command java demo you will get error`ClassNotFoundException because jvm will not be able to find demo class .as the first line is about the package it tells first go for test then find but we are already in the test directory  .. solution is go to src directory in cmd by doing cd .. then you do java demo  you will get out put  
     
 
 #### **7. Access Modifiers and Visibility**
