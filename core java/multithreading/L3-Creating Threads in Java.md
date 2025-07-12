@@ -202,4 +202,92 @@ t.start(); // Now it runs in parallel!
     
 
 
+### You're observing an important **distinction between calling `run()` directly vs calling `start()`**.
 
+
+---
+
+## 🧠 You're Absolutely Right: `obj.run()` does produce output
+
+### Here's your code again:
+
+```java
+public class ThreadPractice implements Runnable {
+
+    @Override
+    public void run() {
+        System.out.println("Hello world: " + Thread.currentThread().getName());
+    }
+
+    public static void main(String[] args) {
+        ThreadPractice obj = new ThreadPractice();
+        obj.run();  // <-- Calling run() directly
+        System.out.println(Thread.currentThread().getName());
+    }
+}
+```
+
+### 🧾 Output (sample):
+
+```
+Hello world: main
+main
+```
+
+---
+
+## ❓ Why did this work? Is it multithreading?
+
+No, **it worked, but it did _not_ create a new thread**.
+
+You're just **calling the `run()` method like a normal method**, which executes on the **main thread**, not in parallel.
+
+---
+
+## 🧩 Let’s Compare `run()` vs `start()`
+
+|Action|Behavior|
+|---|---|
+|`obj.run()`|Runs the method **in the current thread** (here, `main`) like any normal method call|
+|`new Thread(obj).start()`|**Creates a new thread**, and calls the `run()` method inside it|
+
+---
+
+## ✅ How to Actually Start a New Thread
+
+```java
+public class ThreadPractice implements Runnable {
+
+    @Override
+    public void run() {
+        System.out.println("Hello world: " + Thread.currentThread().getName());
+    }
+
+    public static void main(String[] args) {
+        ThreadPractice obj = new ThreadPractice();
+        Thread t = new Thread(obj); // Passing task to Thread
+        t.start(); // Starts a new thread
+        System.out.println("Main thread: " + Thread.currentThread().getName());
+    }
+}
+```
+
+### 🧾 Sample Output:
+
+```
+Main thread: main
+Hello world: Thread-0
+```
+
+---
+
+## 🔑 Summary
+
+- ✅ You **can call `run()` directly**, but that **does not start a new thread**.
+    
+- ✅ To run code concurrently, you must **pass the `Runnable` object to a `Thread` and call `start()`**.
+    
+- ❌ Calling `run()` directly doesn't involve multithreading—it's just a method call.
+    
+- ✅ This design lets you separate **task (Runnable)** from **execution (Thread)**.
+    

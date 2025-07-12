@@ -76,7 +76,73 @@ public class Main {
 
 ---
 
-### 🔓 **Explicit Locks with `ReentrantLock`**
+### 🔓 **Explicit Locks with `ReentrantLock
+
+
+``` java
+
+import java.util.concurrent.TimeUnit;  
+import java.util.concurrent.locks.Lock;  
+import java.util.concurrent.locks.ReentrantLock;  
+  
+class Counter{  
+     private int count;  
+     private static  final Lock lock=new ReentrantLock();  
+  
+    public Counter() {  
+        this.count =0;  
+    }  
+    public void increment() throws InterruptedException {  
+        if(lock.tryLock(1, TimeUnit.SECONDS)) {  
+            try{  
+                count++;  
+            }  
+            catch (Exception e){  
+  
+            }  
+           finally {  
+                lock.unlock();  
+            }  
+        }  
+    }  
+    public  int getcount(){  
+        return this.count;  
+    }  
+}  
+class MyThread extends Thread {  
+    private Counter c;  
+    MyThread(Counter c){  
+        this.c=c;  
+    }  
+    @Override  
+    public  void run() {  
+        for(int i=1;i<=10000;i++){  
+            try {  
+                c.increment();  
+            } catch (InterruptedException e) {  
+                throw new RuntimeException(e);  
+            }  
+        }  
+  
+    }  
+}  
+  
+public class ThreadPractice {  
+    public static void main(String[] args) throws InterruptedException {  
+        Counter obj=new Counter();  
+        MyThread t1 = new MyThread(obj);  
+        MyThread t2 = new MyThread(obj);  
+  
+        t1.start();  
+        t2.start();  
+  
+        t1.join();  
+        t2.join();  
+  
+        System.out.println(obj.getcount());  
+    }  
+}
+```
 
 **Example**: Using `ReentrantLock` to manually control locking behavior.
 

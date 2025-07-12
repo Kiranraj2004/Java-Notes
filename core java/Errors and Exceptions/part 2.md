@@ -1,6 +1,4 @@
 
-
-
 ### 🔹 **Understanding `toString()` Method in Exceptions**
 
 1. **Purpose of `toString()`**:

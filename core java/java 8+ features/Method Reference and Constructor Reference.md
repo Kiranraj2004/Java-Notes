@@ -228,4 +228,3 @@ Charlie
 - **Static** method references need **no object**, but **non-static** method references **need an object**.
     
 
--

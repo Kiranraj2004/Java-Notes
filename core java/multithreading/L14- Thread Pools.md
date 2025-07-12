@@ -69,4 +69,91 @@
     
 
 
-after this executor are the next lecture
+
+#### Let's look at a **simple and clear example** using a **Thread Pool** in Java with the **`ExecutorService`**.
+
+
+---
+
+## 🧠 What is a Thread Pool?
+
+A **Thread Pool** is a group of pre-instantiated threads that are reused to execute multiple tasks.
+
+> ✅ It’s more efficient than creating a new thread every time.
+
+Java provides this via `Executors.newFixedThreadPool(int n)`, etc.
+
+---
+
+## ✅ Simple Thread Pool Example using `ExecutorService`
+
+```java
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+
+public class ThreadPoolExample {
+
+    public static void main(String[] args) {
+        // Create a thread pool with 3 threads
+        ExecutorService executor = Executors.newFixedThreadPool(3);
+
+        // Submit 5 tasks
+        for (int i = 1; i <= 5; i++) {
+            int taskId = i;
+            Runnable task = () -> {
+                String threadName = Thread.currentThread().getName();
+                System.out.println("Task " + taskId + " is being executed by " + threadName);
+                try {
+                    Thread.sleep(1000); // Simulate work
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+                System.out.println("Task " + taskId + " completed by " + threadName);
+            };
+            executor.submit(task); // submit task to pool
+        }
+
+        // Shutdown the executor (no new tasks will be accepted)
+        executor.shutdown();
+    }
+}
+```
+
+---
+
+### 🧾 Sample Output:
+
+```
+Task 1 is being executed by pool-1-thread-1
+Task 2 is being executed by pool-1-thread-2
+Task 3 is being executed by pool-1-thread-3
+Task 1 completed by pool-1-thread-1
+Task 4 is being executed by pool-1-thread-1
+Task 2 completed by pool-1-thread-2
+Task 5 is being executed by pool-1-thread-2
+...
+```
+
+---
+
+## ✅ Explanation
+
+- `Executors.newFixedThreadPool(3)` → Creates 3 worker threads.
+    
+- `executor.submit(task)` → Submits tasks to the pool.
+    
+- Threads are **reused** to execute multiple tasks.
+    
+- `shutdown()` → No new tasks accepted; existing tasks complete.
+    
+
+---
+
+## 🧠 Why Use Thread Pool?
+
+- Better **resource management** (reuse threads).
+    
+- Avoids **thread creation overhead**.
+    
+- Good for **scalable** concurrent applications.
+    

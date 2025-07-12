@@ -52,7 +52,7 @@ Certainly! Here are the notes based on the transcript you provided:
 
 **Static and Default Methods:**
 - **Static Methods:**
-  - Can be defined in interfaces and are associated with the interface itself, not with instances of classes that implement the interface.
+  - Can be defined in interfaces and are associated with the interface itself, not with instances of classes that implement the interface. can't  override in implem 
   - Example:
     ```java
     public interface Animal {
@@ -153,3 +153,234 @@ Certainly! Here are the notes based on the transcript you provided:
 - Interfaces can contain abstract methods, static constants, static methods, and default methods.
 
 ---
+
+### Let's dive into the **use and difference** between `static` and `default` methods in **Java interfaces** (introduced in Java 8):
+
+---
+
+## ✅ 1. **`default` methods in interfaces**
+
+### 🧠 **Purpose**:
+
+To provide **concrete (non-abstract)** method implementations **inside interfaces**, without breaking existing implementations when interfaces evolve.
+
+### 📌 **Why needed?**
+
+Before Java 8, interfaces could only have abstract methods. If you added a method to an interface, **all implementing classes** had to define it — breaking old code.  
+`default` methods solve this.
+
+### 📦 **Syntax & Example**:
+
+```java
+interface MyInterface {
+    default void greet() {
+        System.out.println("Hello from default method");
+    }
+}
+
+class MyClass implements MyInterface {
+    // No need to override greet() unless needed
+}
+```
+
+### 🔁 Can be overridden in implementing classes:
+
+```java
+class MyClass implements MyInterface {
+    @Override
+    public void greet() {
+        System.out.println("Overridden greeting");
+    }
+}
+```
+
+### ✅ Use cases:
+
+- Providing **backward-compatible features**
+    
+- Giving **optional behavior** to implementers
+    
+- Sharing **common method logic**
+    
+
+---
+
+## ✅ 2. **`static` methods in interfaces**
+
+### 🧠 **Purpose**:
+
+To provide **utility/helper methods** that belong to the interface itself — **not to instances** of implementing classes.
+
+### 📌 **Key Points**:
+
+- **Called using the interface name** — not via implementing classes or objects.
+    
+- Cannot be overridden or inherited.
+    
+
+### 📦 **Syntax & Example**:
+
+```java
+interface MyInterface {
+    static void display() {
+        System.out.println("Static method in interface");
+    }
+}
+
+public class Test {
+    public static void main(String[] args) {
+        MyInterface.display();  // ✅ Valid
+        // new MyClass().display(); // ❌ Not allowed
+    }
+}
+```
+
+### ✅ Use cases:
+
+- Utility methods for the interface
+    
+- Static factory methods
+    
+- Internal validation or default configuration
+    
+
+---
+
+## 🔍 Summary Table
+
+|Feature|`default` method|`static` method|
+|---|---|---|
+|Introduced in|Java 8|Java 8|
+|Accessed via|Instance of implementing class|Interface name only|
+|Can be overridden|✅ Yes|❌ No|
+|Purpose|Provide default behavior|Utility/helper methods|
+|Inherited?|✅ Yes|❌ No (not inherited by subclass)|
+
+
+
+
+### In Java, you **cannot create an object (instance) directly** of an **interface** or an **abstract class**, because they are **incomplete** — they may have **abstract methods** that do not have a body (implementation). However, you can still use them **indirectly** in the following ways:
+
+
+---
+
+## 🔹 1. **Can we create object of an interface?**
+
+### ❌ Directly — **No**
+
+You cannot instantiate an interface directly:
+
+```java
+interface Animal {
+    void makeSound();
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Animal a = new Animal(); // ❌ Compilation error
+    }
+}
+```
+
+---
+
+### ✅ Indirectly — **Yes**
+
+You can create an object of a class **that implements** the interface:
+
+```java
+interface Animal {
+    void makeSound();
+}
+
+class Dog implements Animal {
+    public void makeSound() {
+        System.out.println("Woof!");
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Animal a = new Dog(); // ✅ Allowed (Upcasting)
+        a.makeSound(); // Output: Woof!
+    }
+}
+```
+
+You can also use **anonymous classes** or **lambda expressions** (for functional interfaces):
+
+```java
+Animal a = new Animal() {
+    public void makeSound() {
+        System.out.println("Meow!");
+    }
+};
+a.makeSound(); // Output: Meow!
+```
+
+---
+
+## 🔹 2. **Can we create object of an abstract class?**
+
+### ❌ Directly — **No**
+
+You cannot instantiate an abstract class directly:
+
+```java
+abstract class Animal {
+    abstract void makeSound();
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Animal a = new Animal(); // ❌ Compilation error
+    }
+}
+```
+
+---
+
+### ✅ Indirectly — **Yes**
+
+You can create an object of a **subclass** that extends the abstract class:
+
+```java
+abstract class Animal {
+    abstract void makeSound();
+}
+
+class Dog extends Animal {
+    void makeSound() {
+        System.out.println("Woof!");
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Animal a = new Dog(); // ✅ Allowed (Upcasting)
+        a.makeSound(); // Output: Woof!
+    }
+}
+```
+
+You can also use **anonymous inner classes** for abstract classes:
+
+```java
+Animal a = new Animal() {
+    void makeSound() {
+        System.out.println("Roar!");
+    }
+};
+a.makeSound(); // Output: Roar!
+```
+
+---
+
+## ✅ Summary Table
+
+|Type|Direct Object Creation|Indirect Object Creation|
+|---|---|---|
+|Interface|❌ Not Allowed|✅ Using implementing class or anonymous class|
+|Abstract Class|❌ Not Allowed|✅ Using subclass or anonymous inner class|
+
+L

@@ -248,3 +248,117 @@ public String toString() {
 |**finally block**|Always executes cleanup code.|
 |**try-with-resources**|Auto-closes resources like streams/readers.|
 |**Custom exceptions**|Used for business-specific exception handling.|
+
+
+
+## 🔑 Syntax of `throws`
+
+```java
+returnType methodName(params) throws ExceptionType1, ExceptionType2 {
+    // method body
+}
+```
+
+---
+
+## 📌 When to Use `throws`
+
+- When a method **might cause a checked exception**, but you want to **let the caller handle it**.
+    
+- It's typically used with **checked exceptions** (like `IOException`, `SQLException`).
+    
+
+---
+
+## ✅ Example: Using `throws`
+
+```java
+import java.io.*;
+
+public class Main {
+
+    // This method may throw FileNotFoundException
+    static void readFile() throws FileNotFoundException {
+        FileReader fr = new FileReader("nonexistent.txt"); // may throw exception
+    }
+
+    public static void main(String[] args) {
+        try {
+            readFile(); // Caller handles the exception
+        } catch (FileNotFoundException e) {
+            System.out.println("File not found: " + e.getMessage());
+        }
+    }
+}
+```
+
+### 🧾 Output:
+
+```
+File not found: nonexistent.txt (The system cannot find the file specified)
+```
+
+---
+
+## 🧠 Key Points
+
+|Feature|Description|
+|---|---|
+|`throws`|Declares an exception|
+|Used with|Mostly checked exceptions|
+|Who handles?|The **caller** of the method|
+|Multiple exceptions|Can declare more than one: `throws IOException, SQLException`|
+
+---
+
+## ❌ Common Misunderstanding
+
+- `throws` **does not throw** the exception itself — it just **declares** that the method might throw it.
+    
+- To actually throw an exception, use `throw`:
+    
+
+```java
+throw new IOException("File not found");
+```
+
+> 🔁 `throw` — used to **actually throw** an exception  
+> 🧾 `throws` — used to **declare** an exception in method signature
+
+---
+
+## ✅ Example: Multiple Exceptions with `throws`
+
+```java
+import java.io.*;
+import java.sql.SQLException;
+
+public class Main {
+
+    static void riskyMethod() throws IOException, SQLException {
+        // just simulating
+        if (true) throw new IOException("I/O issue");
+        if (false) throw new SQLException("SQL issue");
+    }
+
+    public static void main(String[] args) {
+        try {
+            riskyMethod();
+        } catch (IOException | SQLException e) {
+            System.out.println("Handled: " + e.getMessage());
+        }
+    }
+}
+```
+
+---
+
+## 📝 Summary
+
+|Keyword|Purpose|
+|---|---|
+|`throws`|Declares that a method might throw exceptions|
+|`throw`|Actually throws an exception|
+|Best used for|Letting callers handle checked exceptions|
+
+Let me know if you want examples with custom exceptions or how `throws` differs from `try-catch`.

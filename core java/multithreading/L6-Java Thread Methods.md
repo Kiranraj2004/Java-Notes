@@ -250,3 +250,107 @@ In this session, we'll revisit the official thread methods in Java. We'll clean 
    - Use `yield()` to give other threads a chance to execute.
 
 ---
+
+
+### **basically**, a **daemon thread will terminate automatically when the main thread (and all other user threads) have finished**.
+
+---
+
+### 🔍 Why?
+
+Because daemon threads are considered **"supporting/background"** threads.  
+The JVM doesn't wait for them — it only waits for **user threads** to finish.
+
+---
+
+### ✅ JVM Exit Rule:
+
+> 🔔 The **JVM exits** when **no user (non-daemon) threads** are running.  
+> 🔚 At that moment, all **daemon threads are abruptly terminated** — even if they’re still running.
+
+---
+
+### 🔧 Example: Daemon dies with main
+
+```java
+public class DaemonTest {
+    public static void main(String[] args) {
+        Thread daemon = new Thread(() -> {
+            while (true) {
+                System.out.println("Daemon running...");
+                try {
+                    Thread.sleep(500);
+                } catch (InterruptedException e) {}
+            }
+        });
+
+        daemon.setDaemon(true); // Mark as daemon
+        daemon.start();
+
+        System.out.println("Main thread sleeping...");
+        try {
+            Thread.sleep(1000); // Main thread sleeps briefly
+        } catch (InterruptedException e) {}
+
+        System.out.println("Main thread ending");
+        // Daemon will also stop here automatically
+    }
+}
+```
+
+### 🧾 Sample Output:
+
+```
+Main thread sleeping...
+Daemon running...
+Daemon running...
+Main thread ending
+```
+
+> You may see a few "Daemon running..." messages, but after `main` ends, **JVM stops**, and the daemon is **terminated abruptly**.
+
+---
+
+### ❗ Key Point
+
+- **Yes**, daemon thread _usually_ dies **when main thread dies**, **if no other user threads exist**.
+    
+- If **other user threads** are still running, **daemon threads continue** until those also finish.
+    
+
+---
+
+### ✅ Confirm with Example:
+
+```java
+Thread t1 = new Thread(() -> {
+    // user thread
+    try { Thread.sleep(5000); } catch (Exception e) {}
+    System.out.println("User thread done");
+});
+
+Thread daemon = new Thread(() -> {
+    while (true) {
+        System.out.println("Daemon running...");
+        try { Thread.sleep(500); } catch (Exception e) {}
+    }
+});
+daemon.setDaemon(true);
+
+t1.start();     // user thread
+daemon.start(); // daemon thread
+
+System.out.println("Main done");
+```
+
+🧾 Output:
+
+```
+Main done
+Daemon running...
+Daemon running...
+...
+User thread done
+```
+
+> Here, even after `main` ends, daemon thread keeps running because `t1` (a user thread) is still alive.
